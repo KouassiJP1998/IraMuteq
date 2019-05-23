@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>JSON FILE</title>
+    <style>
+      #zone {
+        border-style: solid;
+        border-width: 3px;
+        border-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="jquery-2.0.0.js"></script>
+    <center>
+    <button id="lecture">Lecture et parsing JSON/Corpus Iramuteq</button>
+    </center>
+    
+    <div id="zone"></div>
+    <!-- bibliothèque permettant de vérifier la langue d'un texte -->
+    <!-- Consultez guessLanguage.js pour voir la liste des langues disponibles-->
+    <script src="Langage/Langage/lib/_languageData.js" charset="utf-8"></script>
+    <script src="Langage/Langage/lib/guessLanguage.js" charset="utf-8"></script>
+    <script>
+
+    $(function() {
+        $('#lecture').on('click', function(){
+        	// Il y a 1330 fichier Json
+        	// On parcours l'ensemble des fichiers JSON : Ici de 1 à 1330
+            for (var i=1;i<= 1330; i++) {
+                        $.when(
+                        	// Dans le Répertoire JSON se trouve les articles
+                            $.getJSON("JSON/article_"+i+".json")
+                        ).done(function(data) {
+
+                            guessLanguage.info(data.abstract, function(info) { // vérifie la langue du texte
+                            	// data.year permet de connaitre l'année du fichier JSON en cours d'exécution
+                            	// info[2]=="French" vérifie si la langue  du résumé est en francais
+                                if ((data.year == "2018") && (data.abstract != null) && (data.metaSession >=1 && data.metaSession <= 9)  && (info[2]=="French")) {
+                                	// on écrit dans la page html ce qu'on souhaite
+                                	// '<br>' permet d'aller à la ligne suivante
+                                    $('#zone').append('**** *annee_'+data.year+" "+" "+"*VilleConf_"+data.place+ '<br>' + data.abstract + '<br>');
+                                    console.log(info[2]);
+                                    // la commande ci-dessous donnera les lignes suivantes :
+                                    /* **** *annee_2018  *VilleConf_Luxembourg
+                                    	texte texte texte texte texte texte
+                                    	texte texte texte texte texte texte
+                                    */
+                                }
+                                if ((data.year == "2017") && (data.abstract != null) && (data.metaSession >=1 && data.metaSession <= 9) && (info[2]=="French")) {
+                                    $('#zone').append('**** *annee_'+data.year+" "+" "+"*VilleConf_"+data.place+ '<br>' + data.abstract + '<br>');
+                                    console.log(info[2]);
+                                }
+                                if ((data.year == "2016") && (data.abstract != null) && (data.metaSession >=1 && data.metaSession <= 9) && (data.metaSession >=1 && data.metaSession <= 9) && (info[2]=="French")) {
+                                    $('#zone').append('**** *annee_'+data.year+" "+" "+"*VilleConf_"+data.place+ '<br>' + data.abstract + '<br>');
+                                    console.log(info[2]);
+                                }
+                                if ((data.year == "2015") && (data.abstract != null) && (data.metaSession >=1 && data.metaSession <= 9) && (info[2]=="French")) {
+                                    $('#zone').append('**** *annee_'+data.year+" "+" "+"*VilleConf_"+data.place+ '<br>' + data.abstract + '<br>');
+                                    console.log(info[2]);
+                                }
+                                if ((data.year == "2014") && (data.abstract != null) && (data.metaSession >=1 && data.metaSession <= 9) && (info[2]=="French")) {
+                                    $('#zone').append('**** *annee_'+data.year+" "+" "+"*VilleConf_"+data.place+ '<br>' + data.abstract + '<br>');
+                                    console.log(info[2]);
+                                }
+                                if ((data.year == "2013") && (data.abstract != null) && (data.metaSession >=1 && data.metaSession <= 9) && (info[2]=="French")) {
+                                    
+                                    $('#zone').append('**** *annee_'+data.year+" "+" "+"*VilleConf_"+data.place+ '<br>' + data.abstract + '<br>');
+                                    console.log(info[2]);
+                                }
+                                if ((data.year == "2012") && (data.abstract != null) && (data.metaSession >=1 && data.metaSession <= 9) && (info[2]=="French")) {
+                                    $('#zone').append('**** *annee_'+data.year+" "+" "+"*VilleConf_"+data.place+ '<br>' + data.abstract + '<br>'); 
+                                    console.log(info[2]);                               
+                                }
+                                if ((data.year == "2011") && (data.abstract != null)  && (data.metaSession >=1 && data.metaSession <= 9) && (info[2]=="French")) {
+                                    $('#zone').append('**** *annee_'+data.year+" "+" "+"*VilleConf_"+data.place+ '<br>' + data.abstract + '<br>');
+                                    console.log(info[2]);
+                                }
+                                if ((data.year == "2010") && (data.abstract != null) && (data.metaSession >=1 && data.metaSession <= 9) && (info[2]=="French")) {
+                                    $('#zone').append('**** *annee_'+data.year+" "+" "+"*VilleConf_"+data.place+ '<br>' + data.abstract + '<br>');
+                                    console.log(info[2]);
+                                }
+                                if ((data.year == "2009") && (data.abstract != null) && (data.metaSession >=1 && data.metaSession <= 9) && (info[2]=="French")) {
+                                    $('#zone').append('**** *annee_'+data.year+" "+" "+"*VilleConf_"+data.place+ '<br>' + data.abstract + '<br>');  
+                                    console.log(info[2]);                              
+                                }
+                                if ((data.year == "2008") && (data.abstract != null)  && (data.metaSession >=1 && data.metaSession <= 9) && (info[2]=="French")) {
+                                    $('#zone').append('**** *annee_'+data.year+" "+" "+"*VilleConf_"+data.place+ '<br>' + data.abstract + '<br>');
+                                    console.log(info[2]);
+                                }
+                                if ((data.year == "2007") && (data.abstract != null) && (data.metaSession >=1 && data.metaSession <= 9) && (info[2]=="French")) {
+                                    $('#zone').append('**** *annee_'+data.year+" "+" "+"*VilleConf_"+data.place+ '<br>' + data.abstract + '<br>');
+                                    console.log(info[2]);
+                                }
+                                if ((data.year == "2006") && (data.abstract != null) && (data.metaSession >=1 && data.metaSession <= 9) && (info[2]=="French")) {
+                                    $('#zone').append('**** *annee_'+data.year+" "+" "+"*VilleConf_"+data.place+ '<br>' + data.abstract + '<br>');
+                                    console.log(info[2]);
+                                }
+                                if ((data.year == "2005") && (data.abstract != null) && (data.metaSession >=1 && data.metaSession <= 9) && (info[2]=="French")) {
+                                    $('#zone').append('**** *annee_'+data.year+" "+" "+"*VilleConf_"+data.place+ '<br>' + data.abstract + '<br>');
+                                    console.log(info[2]);
+                                }
+                                if ((data.year == "2004") && (data.abstract != null) && (data.metaSession >=1 && data.metaSession <= 9) && (info[2]=="French")) {
+                                    $('#zone').append('**** *annee_'+data.year+" "+" "+"*VilleConf_"+data.place+ '<br>' + data.abstract + '<br>');
+                                    console.log(info[2]);
+                                }
+                            });    
+                        });
+            }
+        });
+    });
+ 
+    </script>
+  </body>
+</html>
